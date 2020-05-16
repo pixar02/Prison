@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import tech.mcprison.prison.ranks.PrisonRanks;
 import tech.mcprison.prison.spigot.SpigotPrison;
 
 public class PrestigesPrestigeCommand implements CommandExecutor {
@@ -17,8 +18,11 @@ public class PrestigesPrestigeCommand implements CommandExecutor {
             return true;
         }
 
+        String rankName = PrisonRanks.getInstance().getLadderManager().getLadder("default").get().getLowestRank().get().name;
+
         if (sender.hasPermission("prison.prestige")){
             Bukkit.dispatchCommand(sender, "rankup prestiges");
+            Bukkit.dispatchCommand(sender, "ranks set rank " + sender.getName() + " " + rankName + " default");
         }
 
         return true;

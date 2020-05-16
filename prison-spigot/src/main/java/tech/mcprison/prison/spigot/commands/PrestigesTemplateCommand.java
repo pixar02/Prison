@@ -15,7 +15,7 @@ public class PrestigesTemplateCommand {
         // Get the player
         Player p = (Player) sender;
 
-        if (args.length == 3) {
+        if (args.length == 2) {
 
             // Check the permission
             if (!(p.hasPermission("prison.admin"))) {
@@ -30,27 +30,22 @@ public class PrestigesTemplateCommand {
             int x = 0;
 
             try {
-                while (lm.getLadder(args[0]).get().getNext(x).isPresent()){
+                while (lm.getLadder("default").get().getNext(x).isPresent()){
                     x++;
                 }
             } catch (Exception ex3){
                 x--;
             }
 
-            try {
-                rankName = lm.getLadder(args[0]).get().getByPosition(x).get().name;
-            } catch (Exception ex){
-                sender.sendMessage(SpigotPrison.format("&cThat ladder might not exists"));
-                return true;
-            }
+                rankName = lm.getLadder("default").get().getByPosition(x).get().name;
 
             p.sendMessage(SpigotPrison.format("&aThe last rank's " + rankName));
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ranks ladder create prestiges");
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), SpigotPrison.format("ranks create + 1000 prestiges &8[&c&l+&8]&f"));
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ranks command add " + rankName + " " + args[1]);
-            rankName = lm.getLadder(args[0]).get().getLowestRank().get().name;
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ranks command add " + rankName + " " + args[0]);
+            rankName = lm.getLadder("default").get().getLowestRank().get().name;
             p.sendMessage(SpigotPrison.format("&aThe first rank's " + rankName));
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ranks command add " + rankName + " " + args[2]);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ranks command add " + rankName + " " + args[1]);
             p.sendMessage(SpigotPrison.format("&aLadder -prestiges- has been created with success, &c&lDON'T RENAME IT &cor prestiges won't work, &ayou can rename the ranks inside the ladder and add new, they'll work as prestiges."));
 
             return true;

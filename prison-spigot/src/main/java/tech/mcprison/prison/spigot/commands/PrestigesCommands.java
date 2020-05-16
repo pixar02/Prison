@@ -20,11 +20,11 @@ public class PrestigesCommands implements CommandExecutor {
                 sender.sendMessage(SpigotPrison.format("&8---------------------------"));
                 sender.sendMessage(SpigotPrison.format("&3/prestige  &8&l| &3Prestige, permission prison.prestige."));
                 sender.sendMessage(SpigotPrison.format("&3/prestiges  &8&l| &3Get a list of prestiges commands."));
-                sender.sendMessage(SpigotPrison.format("&3/prestiges template <ladder> <commandToAdd> <commandToRemove> "));
+                sender.sendMessage(SpigotPrison.format("&3/prestiges template <commandToAdd> <commandToRemove> "));
                 sender.sendMessage(SpigotPrison.format("&8&l| &3Make the prestiges ladder."));
-                sender.sendMessage(SpigotPrison.format("Replace &1<ladder> &3with the name of the ladder where to check if the player's at the last rank"));
-                sender.sendMessage(SpigotPrison.format("Also add the rankupCommand to the last rank of the ladder selected to give the permission -prison.prestige-. "));
-                sender.sendMessage(SpigotPrison.format("Put instead of &1<commandToAdd> &3the command to &a&lADD &3to a player the permission, this &cdepends by your permission plugin. "));
+                sender.sendMessage(SpigotPrison.format("&3The ladder where will be added the commands's the default one."));
+                sender.sendMessage(SpigotPrison.format("&3Also add the rankupCommand to the last rank of the ladder selected to give the permission -prison.prestige-. "));
+                sender.sendMessage(SpigotPrison.format("&3Put instead of &1<commandToAdd> &3the command to &a&lADD &3to a player the permission, this &cdepends by your permission plugin. "));
                 sender.sendMessage(SpigotPrison.format("&3Do the same but to &c&lREMOVE &3the permission instead of the &1<commandToRemove>&3."));
 
             } else {
