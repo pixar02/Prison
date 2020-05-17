@@ -22,7 +22,6 @@ public class PrestigesPrestigeCommand implements CommandExecutor {
 
         if (sender.hasPermission("prison.prestige")){
             Bukkit.dispatchCommand(sender, "rankup prestiges");
-            Bukkit.dispatchCommand(sender, "ranks set rank " + sender.getName() + " " + rankName + " default");
         }
 
         return true;

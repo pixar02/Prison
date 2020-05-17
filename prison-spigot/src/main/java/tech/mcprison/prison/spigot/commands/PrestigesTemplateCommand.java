@@ -37,13 +37,15 @@ public class PrestigesTemplateCommand {
                 x--;
             }
 
-                rankName = lm.getLadder("default").get().getByPosition(x).get().name;
+            rankName = lm.getLadder("default").get().getByPosition(x).get().name;
+            String rankNamePrestige = lm.getLadder("prestiges").get().getLowestRank().get().name;
 
             p.sendMessage(SpigotPrison.format("&aThe last rank's " + rankName));
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ranks ladder create prestiges");
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), SpigotPrison.format("ranks create + 1000 prestiges &8[&c&l+&8]&f"));
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ranks command add " + rankName + " " + args[0]);
             rankName = lm.getLadder("default").get().getLowestRank().get().name;
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ranks command add " + rankNamePrestige + " ranks set rank {player} " + rankName + " default");
             p.sendMessage(SpigotPrison.format("&aThe first rank's " + rankName));
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ranks command add " + rankName + " " + args[1]);
             p.sendMessage(SpigotPrison.format("&aLadder -prestiges- has been created with success, &c&lDON'T RENAME IT &cor prestiges won't work, &ayou can rename the ranks inside the ladder and add new, they'll work as prestiges."));
