@@ -18,9 +18,22 @@ public class PrestigesPrestigeCommand implements CommandExecutor {
             return true;
         }
 
-        String rankName = PrisonRanks.getInstance().getLadderManager().getLadder("default").get().getLowestRank().get().name;
 
-        if (sender.hasPermission("prison.prestige")){
+        if (!(PrisonRanks.getInstance().getLadderManager().getLadder("default").isPresent()) ||
+                !(PrisonRanks.getInstance().getLadderManager().getLadder("default").get().getLowestRank().isPresent()) ||
+                PrisonRanks.getInstance().getLadderManager().getLadder("default").get().getLowestRank().get().name == null){
+            sender.sendMessage(SpigotPrison.format("&cThere aren't ranks in the default ladder"));
+            return true;
+        }
+
+        if (!(PrisonRanks.getInstance().getLadderManager().getLadder("prestiges").isPresent()) ||
+                !(PrisonRanks.getInstance().getLadderManager().getLadder("prestiges").get().getLowestRank().isPresent()) ||
+                PrisonRanks.getInstance().getLadderManager().getLadder("prestiges").get().getLowestRank().get().name == null){
+            sender.sendMessage(SpigotPrison.format("&cThere aren't prestiges in the prestige ladder"));
+            return true;
+        }
+
+        if (sender.hasPermission("ranks.rankup.prestiges")){
             Bukkit.dispatchCommand(sender, "rankup prestiges");
         }
 
