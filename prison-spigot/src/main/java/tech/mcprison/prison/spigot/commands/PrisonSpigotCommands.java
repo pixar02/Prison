@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import tech.mcprison.prison.spigot.SpigotPrison;
 import tech.mcprison.prison.spigot.gui.SpigotPrisonGUI;
+import tech.mcprison.prison.spigot.gui.rank.SpigotPlayerPrestigesGUI;
 import tech.mcprison.prison.spigot.spiget.BluesSemanticVersionData;
 
 /**
@@ -40,9 +41,23 @@ public class PrisonSpigotCommands implements CommandExecutor {
         }
 
         if (args[0].equalsIgnoreCase("gui")) {
-            Player p = (Player) sender;
+            Player p = null;
+            if (sender instanceof Player) {
+                p = (Player) sender;
+            }
             SpigotPrisonGUI gui = new SpigotPrisonGUI(p);
             gui.open();
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("prestiges")){
+            Player p = null;
+            if (sender instanceof Player) {
+                p = (Player) sender;
+            }
+            SpigotPlayerPrestigesGUI gui = new SpigotPlayerPrestigesGUI(p);
+            gui.open();
+            return true;
         }
 
         return true;

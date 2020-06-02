@@ -8,6 +8,9 @@ import org.bukkit.command.CommandSender;
 import tech.mcprison.prison.ranks.PrisonRanks;
 import tech.mcprison.prison.spigot.SpigotPrison;
 
+/**
+ * @author GABRYCA
+ */
 public class PrestigesCommands implements CommandExecutor {
 
     @Override

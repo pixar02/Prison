@@ -12,6 +12,10 @@ import tech.mcprison.prison.ranks.PrisonRanks;
 import tech.mcprison.prison.ranks.managers.LadderManager;
 import tech.mcprison.prison.spigot.SpigotPrison;
 
+/**
+ * @author GABRYCA
+ */
+
 public class PrestigesPrestigeCommand implements CommandExecutor {
 
     @Override
