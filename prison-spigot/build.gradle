@@ -41,6 +41,7 @@ dependencies {
     implementation project(':prison-core')
     implementation project(':prison-mines')
     implementation project(':prison-ranks')
+    implementation project(':prison-shops')
     implementation 'org.bstats:bstats-bukkit:1.5'
     implementation 'org.inventivetalent.spiget-update:bukkit:1.4.2-SNAPSHOT'
 	implementation 'org.apache.commons:commons-lang3:3.9'
@@ -101,6 +102,7 @@ shadowJar {
         include(project(':prison-core'))
         include(project(':prison-mines'))
         include(project(':prison-ranks'))
+        include(project(':prison-shops'))
     }
 
     relocate 'org.bstats.bukkit', 'tech.mcprison.prison.spigot'
