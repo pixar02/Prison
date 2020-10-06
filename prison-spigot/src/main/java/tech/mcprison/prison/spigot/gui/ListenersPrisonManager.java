@@ -1,11 +1,5 @@
 package tech.mcprison.prison.spigot.gui;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.Configuration;
@@ -18,13 +12,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-
 import tech.mcprison.prison.Prison;
 import tech.mcprison.prison.autofeatures.AutoFeaturesFileConfig;
 import tech.mcprison.prison.autofeatures.AutoFeaturesFileConfig.AutoFeatures;
-import tech.mcprison.prison.gui.GUI;
 import tech.mcprison.prison.mines.PrisonMines;
 import tech.mcprison.prison.mines.data.Mine;
 import tech.mcprison.prison.modules.Module;
@@ -37,21 +28,17 @@ import tech.mcprison.prison.spigot.gui.autofeatures.SpigotAutoBlockGUI;
 import tech.mcprison.prison.spigot.gui.autofeatures.SpigotAutoFeaturesGUI;
 import tech.mcprison.prison.spigot.gui.autofeatures.SpigotAutoPickupGUI;
 import tech.mcprison.prison.spigot.gui.autofeatures.SpigotAutoSmeltGUI;
-import tech.mcprison.prison.spigot.gui.mine.SpigotMineBlockPercentageGUI;
-import tech.mcprison.prison.spigot.gui.mine.SpigotMineInfoGUI;
-import tech.mcprison.prison.spigot.gui.mine.SpigotMineNotificationRadiusGUI;
-import tech.mcprison.prison.spigot.gui.mine.SpigotMineNotificationsGUI;
-import tech.mcprison.prison.spigot.gui.mine.SpigotMineResetTimeGUI;
-import tech.mcprison.prison.spigot.gui.mine.SpigotMinesBlocksGUI;
-import tech.mcprison.prison.spigot.gui.mine.SpigotMinesConfirmGUI;
-import tech.mcprison.prison.spigot.gui.mine.SpigotMinesGUI;
-import tech.mcprison.prison.spigot.gui.rank.SpigotLaddersGUI;
-import tech.mcprison.prison.spigot.gui.rank.SpigotRankManagerGUI;
-import tech.mcprison.prison.spigot.gui.rank.SpigotRankPriceGUI;
-import tech.mcprison.prison.spigot.gui.rank.SpigotRankUPCommandsGUI;
-import tech.mcprison.prison.spigot.gui.rank.SpigotRanksGUI;
+import tech.mcprison.prison.spigot.gui.mine.*;
+import tech.mcprison.prison.spigot.gui.rank.*;
 import tech.mcprison.prison.spigot.gui.sellall.SellAllAdminGUI;
 import tech.mcprison.prison.spigot.gui.sellall.SellAllPriceGUI;
+import tech.mcprison.prison.spigot.gui.shops.SpigotShopsGUI;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 
 /**
@@ -197,13 +184,13 @@ public class ListenersPrisonManager implements Listener {
         switch (title) {
 
             // Check the title and do the actions
-            case "PrisonManager":
+            case "PrisonManager": {
 
                 // Call the method
                 PrisonManagerGUI(e, p, buttonNameMain);
 
                 break;
-
+            }
             // Check the title
             case "RanksManager -> Ladders": {
 
@@ -212,7 +199,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the title of the inventory and do the actions
             case "Ladders -> Ranks": {
 
@@ -285,6 +271,7 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
+            // Check the title and do the actions
             case "Mines -> MineInfo": {
 
                 // Call the method
@@ -292,7 +279,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the title of the inventory and do the actions
             case "Mines -> Delete": {
 
@@ -301,7 +287,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the title of the inventory and do the actions
             case "MineInfo -> Blocks": {
 
@@ -310,7 +295,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the inventory name and do the actions
             case "MineInfo -> ResetTime": {
 
@@ -319,7 +303,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the inventory title and do the actions
             case "MineInfo -> MineNotifications": {
 
@@ -328,14 +311,13 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
+            // Check the title and do the actions
             case "MineInfo -> BlockPercentage":{
 
                 mineBlockPercentage(e, p, parts);
 
                 break;
             }
-
             // Check the inventory title and do the actions
             case "MineNotifications -> Radius": {
 
@@ -352,7 +334,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the title and do the actions
             case "AutoFeatures -> AutoPickup":{
 
@@ -361,7 +342,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the title and do the actions
             case "AutoFeatures -> AutoSmelt":{
 
@@ -370,7 +350,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the title and do the actions
             case "AutoFeatures -> AutoBlock":{
 
@@ -379,7 +358,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the title and do the actions
             case "PrisonManager -> SellAll-Admin":{
 
@@ -387,7 +365,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the title and do the actions
             case "SellAll -> ItemValue":{
 
@@ -395,7 +372,6 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
-
             // Check the title and do the actions
             case "PrisonManager -> SellAll-Player":{
 
@@ -404,6 +380,8 @@ public class ListenersPrisonManager implements Listener {
 
                 break;
             }
+
+            //TODO add shops tittles and create it's methods
         }
     }
 
@@ -676,6 +654,11 @@ public class ListenersPrisonManager implements Listener {
             // Check the Item display name and do open the right GUI
             case "SellAll": {
                 SellAllAdminGUI gui = new SellAllAdminGUI(p);
+                gui.open();
+                break;
+            }
+            case "Shops:":{
+                SpigotShopsGUI gui = new SpigotShopsGUI(p);
                 gui.open();
                 break;
             }

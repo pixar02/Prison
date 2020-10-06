@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import tech.mcprison.prison.shops.data.Shop;
 import tech.mcprison.prison.spigot.SpigotPrison;
+import tech.mcprison.prison.spigot.gui.ListenersPrisonManager;
 import tech.mcprison.prison.spigot.gui.SpigotGUIComponents;
 
 public class SpigotShopInfoGUI extends SpigotGUIComponents {
@@ -21,7 +22,12 @@ public class SpigotShopInfoGUI extends SpigotGUIComponents {
 
     public void open(){
 
+
         Inventory inv = Bukkit.createInventory(null, 9, SpigotPrison.format("&3Shops -> Info"));
+
+        // Open the inventory
+        this.player.openInventory(inv);
+        ListenersPrisonManager.get().addToGUIBlocker(player);
     }
 
     private boolean guibuilder(){
