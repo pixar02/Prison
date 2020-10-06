@@ -3,12 +3,19 @@ package tech.mcprison.prison.shops.commands;
 import tech.mcprison.prison.commands.Arg;
 import tech.mcprison.prison.commands.Command;
 import tech.mcprison.prison.internal.CommandSender;
+import tech.mcprison.prison.internal.Player;
 import tech.mcprison.prison.mines.PrisonMines;
 import tech.mcprison.prison.mines.data.Mine;
+import tech.mcprison.prison.shops.gui.ShopsGUI;
 
 public class ShopsCommands {
 
-
+    /**
+     *
+     * @param sender
+     * @param mineName
+     * @param rank
+     */
     @Command(identifier = "shops create", description = "Creates a new shop.",
             onlyPlayers = false, permissions = "shops.create")
     public void createShop(CommandSender sender,
@@ -17,16 +24,35 @@ public class ShopsCommands {
 
     }
 
+    /**
+     *
+     * @param sender
+     */
     @Command(identifier = "shops gui", description = "Opens a gui to control the shops",
             permissions = "shops.admin")
     public void shopGUI(CommandSender sender){
         // Open Main shop GUI
-        //new ShopsGUI().show((Player) sender);
+        new ShopsGUI().open((Player) sender);
     }
 
+    /**
+     *
+     * @param sender
+     * @param shop
+     *//*
+    @Command(identifier = "shops open", description = "Open a shop.",
+            onlyPlayers = true, permissions = "shops.open")
+    public void openShop(CommandSender sender,
+           @Arg(name = "shopName", description = "name of the shop") Shop shop){
 
 
+    } */
 
+    /**
+     *
+     * @param sender
+     * @param name
+     */
     @Command(identifier = "shops generate", description = "Generate for (all) mines a shop (without pricing).",
     onlyPlayers = false, permissions = "shops.create")
     public void generateShops(CommandSender sender,
