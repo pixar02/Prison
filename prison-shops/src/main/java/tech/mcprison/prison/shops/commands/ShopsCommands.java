@@ -17,6 +17,12 @@ public class ShopsCommands {
 
     }
 
+    @Command(identifier = "shops gui", description = "Opens a gui to control the shops",
+            permissions = "shops.admin")
+    public void shopGUI(CommandSender sender){
+        // Open Main shop GUI
+        //new ShopsGUI().show((Player) sender);
+    }
 
 
 
